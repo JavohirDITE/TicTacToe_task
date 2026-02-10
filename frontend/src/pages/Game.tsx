@@ -61,7 +61,7 @@ function BoardCell({
                             ? "rgba(255,255,255,0.07)"
                             : undefined,
                 },
-                fontSize: { xs: "2.5rem", sm: "3.5rem" },
+                fontSize: value === 2 ? { xs: "3rem", sm: "4.2rem" } : { xs: "2.5rem", sm: "3.5rem" },
                 fontWeight: 700,
                 color: value === 1 ? "#9fa8da" : value === 2 ? "#ef9a9a" : "transparent",
                 userSelect: "none",
