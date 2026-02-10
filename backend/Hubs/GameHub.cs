@@ -31,19 +31,16 @@ public class GameHub : Hub
             return;
         }
 
-        if (room.Status == GameStatus.Waiting && room.PlayerXConnectionId == Context.ConnectionId)
+        if (room.Status == GameStatus.Waiting && room.PlayerXName == playerName && room.PlayerXConnectionId == null)
+        {
+            room.PlayerXConnectionId = Context.ConnectionId;
+        }
+        else if (room.Status == GameStatus.Waiting && room.PlayerXConnectionId == Context.ConnectionId)
         {
             await Groups.AddToGroupAsync(Context.ConnectionId, roomId);
             await Clients.Caller.SendAsync("AssignRole", "X");
             await Clients.Caller.SendAsync("RoomStateUpdated", GameLogic.ToDto(room));
             return;
-        }
-
-        if (room.Status == GameStatus.Waiting && room.PlayerXName == playerName && room.PlayerXConnectionId != Context.ConnectionId)
-        {
-            room.PlayerOName = playerName;
-            room.PlayerOConnectionId = Context.ConnectionId;
-            room.Status = GameStatus.Playing;
         }
         else if (room.Status == GameStatus.Waiting && room.PlayerOName == null)
         {
@@ -62,7 +59,7 @@ public class GameHub : Hub
         {
             room.PlayerOConnectionId = Context.ConnectionId;
         }
-        else if (room.Status != GameStatus.Waiting)
+        else
         {
             await Clients.Caller.SendAsync("Error", "Room is full");
             return;
