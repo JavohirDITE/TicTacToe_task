@@ -20,7 +20,7 @@ import ReplayIcon from "@mui/icons-material/Replay";
 import { startConnection, getConnection } from "../signalr";
 import type { RoomState } from "../types";
 
-const CELL_MARKS = ["", "✕", "○"];
+const CELL_MARKS = ["", "X", "O"];
 
 function BoardCell({
     value,
@@ -61,7 +61,7 @@ function BoardCell({
                             ? "rgba(255,255,255,0.07)"
                             : undefined,
                 },
-                fontSize: value === 2 ? { xs: "3rem", sm: "4.2rem" } : { xs: "2.5rem", sm: "3.5rem" },
+                fontSize: { xs: "2.5rem", sm: "3.5rem" },
                 fontWeight: 700,
                 color: value === 1 ? "#9fa8da" : value === 2 ? "#ef9a9a" : "transparent",
                 userSelect: "none",
@@ -237,7 +237,7 @@ export default function Game() {
                     >
                         <Box sx={{ textAlign: "left" }}>
                             <Chip
-                                label={`✕ ${room.playerXName}`}
+                                label={`X  ${room.playerXName}`}
                                 sx={{
                                     fontWeight: 600,
                                     backgroundColor:
@@ -257,7 +257,7 @@ export default function Game() {
                         </Typography>
                         <Box sx={{ textAlign: "right" }}>
                             <Chip
-                                label={`○ ${room.playerOName || "..."}`}
+                                label={`O  ${room.playerOName || "..."}`}
                                 sx={{
                                     fontWeight: 600,
                                     backgroundColor:
