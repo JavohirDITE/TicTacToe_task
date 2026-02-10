@@ -1,0 +1,11 @@
+.dockerignore
+node_modules/
+dist/
+bin/
+obj/
+*.db
+*.db-shm  
+*.db-wal
+.vs/
+*.user
+wwwroot/
