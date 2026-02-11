@@ -9,7 +9,7 @@ import {
     Card,
     CardContent,
 } from "@mui/material";
-import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
+
 
 export default function NameEntry() {
     const [name, setName] = useState("");
@@ -52,9 +52,7 @@ export default function NameEntry() {
                     }}
                 >
                     <CardContent sx={{ p: 5, textAlign: "center" }}>
-                        <SportsEsportsIcon
-                            sx={{ fontSize: 56, color: "#9fa8da", mb: 2 }}
-                        />
+
                         <Typography variant="h4" gutterBottom sx={{ color: "#e0e0e0" }}>
                             Tic Tac Toe
                         </Typography>

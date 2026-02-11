@@ -9,7 +9,7 @@ import {
     Stack,
     IconButton,
 } from "@mui/material";
-import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
+
 import PersonIcon from "@mui/icons-material/Person";
 import LogoutIcon from "@mui/icons-material/Logout";
 
@@ -46,7 +46,7 @@ export default function Layout() {
                         sx={{ cursor: "pointer" }}
                         onClick={() => navigate("/lobby")}
                     >
-                        <SportsEsportsIcon sx={{ color: "#9fa8da" }} />
+
                         <Typography variant="h6" sx={{ fontWeight: 700, color: "#e0e0e0" }}>
                             TicTacToe
                         </Typography>
